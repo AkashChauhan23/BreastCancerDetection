@@ -41,5 +41,5 @@ model = Sequencial([
 opt = tf.optimizer.Adam(learning_rate = 0.01)
 model.compile(optimizer = opt, loss = 'binary_crossentropy', metrics = ['accuracy'])
 early_stopping_callback = EarlyStopping(monitor = 'val_loss', patience = 5, restore_best_weights = True)
-histroy = model.fit(x_train, x_test, validation_data = (x_test, y_test), epochs = 80, callbacks = [early_stopping_callback])
+histroy = model.fit(x_train, y_train, validation_data = (x_test, y_test), epochs = 80, callbacks = [early_stopping_callback])
 model.save('breastcancerdetection.keras')
